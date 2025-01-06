@@ -14,4 +14,7 @@ body {
     font-weight: bold;
 }
 
-
+[id$="-part"]:hover {
+    color: #c1c1c1;
+    cursor: pointer;
+}

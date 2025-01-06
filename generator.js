@@ -7,7 +7,7 @@ function getRandomElement(arr) {
 	return arr[randomIndex];
 }
 	
-export function generateName() {
+function generateName() {
 
 	const adjective = getRandomElement(adjectives);
 	const color = getRandomElement(colors);
@@ -30,3 +30,39 @@ export function generateName() {
 	return name;
 }
 
+export function showName(){
+	const randomFormat = Math.random();
+
+	if (randomFormat < 0.5 ) {
+		document.getElementById("adjective-part").textContent = " ";
+
+		document.getElementById("color-part").textContent = getRandomElement(colors);
+
+	} else if (randomFormat < 0.9 ) {
+		document.getElementById("adjective-part").textContent = getRandomElement(adjectives);
+
+		document.getElementById("color-part").textContent = " ";
+
+	} else {
+		document.getElementById("adjective-part").textContent = getRandomElement(adjectives);
+    	document.getElementById("color-part").textContent = getRandomElement(colors);
+    
+	}
+
+
+	// document.getElementById("adjective-part").textContent = getRandomElement(adjectives);
+    // document.getElementById("color-part").textContent = getRandomElement(colors);
+    document.getElementById("animal-part").textContent = getRandomElement(animals);
+
+	document.getElementById("adjective-part").addEventListener("click", () => {
+		document.getElementById("adjective-part").textContent = getRandomElement(adjectives);
+	});
+	
+	document.getElementById("color-part").addEventListener("click", () => {
+		document.getElementById("color-part").textContent = getRandomElement(colors);
+	});
+	
+	document.getElementById("animal-part").addEventListener("click", () => {
+		document.getElementById("animal-part").textContent = getRandomElement(animals);
+	});
+}

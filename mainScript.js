@@ -1,3 +1,3 @@
-import {generateName} from "./generator.js"
+import {showName} from "./generator.js"
 
-document.getElementById("name-display").textContent = generateName();
+showName();
