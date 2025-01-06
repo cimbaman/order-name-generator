@@ -1,15 +1,12 @@
-    
-const adjectives = ["Pure", "Pitch", "Brooding", "Mysterious", "Fierce", "Graceful"];
-const colors = ["White", "Black", "Red", "Blue", "Peach", "Green"];
-const animals = ["Elephant", "Hen", "Rabbit", "Lion", "Giraffe", "Panda"];
+import {adjectives} from "./data/adjectives.js"
+import {colors} from "./data/colors.js"
+import {animals} from "./data/animals.js"
 
 function getRandomElement(arr) {
 	const randomIndex = Math.floor(Math.random() * arr.length);
 	return arr[randomIndex];
 }
 	
-
-
 export function generateName() {
 
 	const adjective = getRandomElement(adjectives);
