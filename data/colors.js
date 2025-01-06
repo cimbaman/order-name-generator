@@ -14,11 +14,12 @@ export const colors = [
     "Maroon",
     "Olive",
     "Purple",
-    "Silver",
     "Teal",
     "Brown",
     "Crimson",
     "Gold",
+    "Silver",
+    "Copper",
     "Indigo",
     "Ivory",
     "Khaki",
@@ -29,6 +30,5 @@ export const colors = [
     "Salmon",
     "Tan",
     "Turquoise",
-    "Violet",
-    "Coper"
+    "Violet"
     ];
