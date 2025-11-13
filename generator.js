@@ -1,13 +1,14 @@
 import {adjectives} from "./data/adjectives.js"
 import {colors} from "./data/colors.js"
 import {animals} from "./data/animals.js"
+import {colors as hexcolors} from "./data/hexcolors.js"
 
 function getRandomElement(arr) {
 	const randomIndex = Math.floor(Math.random() * arr.length);
 	return arr[randomIndex];
 }
 	
-function generateName() {
+export function generateName() {
 
 	const adjective = getRandomElement(adjectives);
 	const color = getRandomElement(colors);
@@ -33,36 +34,49 @@ function generateName() {
 export function showName(){
 	const randomFormat = Math.random();
 
+	const color = getRandomElement(hexcolors);
+
+	const adjective = getRandomElement(adjectives);
+
+	const animal = getRandomElement(animals);
+
+
 	if (randomFormat < 0.5 ) {
 		document.getElementById("adjective-part").textContent = " ";
 
-		document.getElementById("color-part").textContent = getRandomElement(colors);
+		document.getElementById("color-part").textContent = color.name;
+		document.body.style.color = color.hexcode;
 
 	} else if (randomFormat < 0.9 ) {
-		document.getElementById("adjective-part").textContent = getRandomElement(adjectives);
+		document.getElementById("adjective-part").textContent = adjective;
 
 		document.getElementById("color-part").textContent = " ";
+		document.body.style.color = "#f4f4f4";
 
 	} else {
-		document.getElementById("adjective-part").textContent = getRandomElement(adjectives);
-    	document.getElementById("color-part").textContent = getRandomElement(colors);
-    
+		document.getElementById("adjective-part").textContent = adjective;
+    	document.getElementById("color-part").textContent = color.name;
+		document.body.style.color = color.hexcode;
 	}
 
 
 	// document.getElementById("adjective-part").textContent = getRandomElement(adjectives);
     // document.getElementById("color-part").textContent = getRandomElement(colors);
-    document.getElementById("animal-part").textContent = getRandomElement(animals);
+    document.getElementById("animal-part").textContent = animal;
 
 	document.getElementById("adjective-part").addEventListener("click", () => {
-		document.getElementById("adjective-part").textContent = getRandomElement(adjectives);
+		const adjective = getRandomElement(adjectives);
+		document.getElementById("adjective-part").textContent = adjective;
 	});
 	
 	document.getElementById("color-part").addEventListener("click", () => {
-		document.getElementById("color-part").textContent = getRandomElement(colors);
+		const color = getRandomElement(hexcolors);
+		document.getElementById("color-part").textContent = color.name;
+		document.body.style.color = color.hexcode;
 	});
 	
 	document.getElementById("animal-part").addEventListener("click", () => {
-		document.getElementById("animal-part").textContent = getRandomElement(animals);
+		const animal = getRandomElement(animals);
+		document.getElementById("animal-part").textContent = animal;
 	});
 }
