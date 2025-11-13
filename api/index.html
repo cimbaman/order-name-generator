@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API</title>
+</head>
+<body>
+  <script type="module">
+    import { generateNameJSON } from "../generator.js"
+
+    // Generate JSON and display it
+    const json = generateNameJSON();
+
+    // Set page content type visually
+    document.body.innerHTML = `<pre>${json}</pre>`;
+    
+    // Optional: set content type hint (won’t affect actual HTTP headers)
+    const meta = document.createElement('meta');
+    meta.httpEquiv = 'Content-Type';
+    meta.content = 'application/json; charset=UTF-8';
+    document.head.appendChild(meta);
+    
+  </script>
+</body>
+</html>

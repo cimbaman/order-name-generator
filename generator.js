@@ -80,3 +80,28 @@ export function showName(){
 		document.getElementById("animal-part").textContent = animal;
 	});
 }
+
+export function generateNameJSON() {
+
+	const adjective = getRandomElement(adjectives);
+	const color = getRandomElement(hexcolors);
+	const animal = getRandomElement(animals);
+
+	const randomFormat = Math.random();
+
+	let name = "";
+
+	if (randomFormat < 0.5 ) {
+		name = `${color.name} ${animal}`;
+	} else if (randomFormat < 0.9 ) {
+		name = `${adjective} ${animal}`;
+	} else {
+		name = `${adjective} ${color.name} ${animal}`;
+	}
+
+	return JSON.stringify(
+		{"name" : name,
+			"color": color.hexcode
+		}, null, 2
+	);
+}
